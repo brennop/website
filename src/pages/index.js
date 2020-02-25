@@ -1,21 +1,40 @@
 import React from "react"
-import { Link } from "gatsby"
+import "./styles.css"
+import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
+import Sidebar from "../components/Sidebar/"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+const IndexPage = ({ data }) => (
+  <div className="layout">
+    <Sidebar />
+    <div className="list">
+      <h2 className="title">posts</h2>
+      {data &&
+        data.allMarkdownRemark.edges.map(({ node }) => (
+          <Link to={node.frontmatter.slug} key={node.id}>
+            {node.frontmatter.date} {node.frontmatter.title}
+          </Link>
+        ))}
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+  </div>
 )
+
+export const query = graphql`
+  query BlogPosts {
+    allMarkdownRemark(filter: { frontmatter: { type: { eq: "blog" } } }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            slug
+            date
+            title
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

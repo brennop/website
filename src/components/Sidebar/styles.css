@@ -1,0 +1,45 @@
+.sidebar {
+  width: 8rem;  
+  height: 6rem;
+  margin: 1.4rem;
+  flex-shrink: 0;
+  padding: 1.6rem;
+  font-family: monospace;
+  line-height: 1.2rem;
+  
+  border-radius: 4px;
+  background-color: #2e3440;
+}
+
+.sidebar .title {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* main title "brn" */
+.sidebar .title a {
+  color: #81a1c1;
+}
+
+.sidebar .title::before {
+  content: "➞ ";
+  color: #a3be8c; 
+  font-weight: bold;
+}
+
+.sidebar .title::after {
+  content: " ls";
+  color: #eceff4; 
+}
+
+.sidebar .links a{
+  color: #88c0d0; 
+  display: block;
+}
+
+.sidebar .links a:hover {
+  background-color: #eceff4; 
+  color: #2e3440;
+}
+

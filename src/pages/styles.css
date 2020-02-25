@@ -1,0 +1,49 @@
+a {
+  text-decoration: none;
+}
+
+.layout {
+  margin: 0;
+  display: flex;
+  box-sizing: border-box;
+  padding: 
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+}
+
+.list {
+  font-family: monospace;
+  font-size: 18px;
+  margin: 1.4rem;
+}
+
+.list .title {
+  margin: 0;
+  font-size: 18px;
+}
+
+.list a {
+  color: #2e3440;
+  display: block;
+}
+
+.list a:hover {
+  background-color: #5e81ac;
+  color:#d8dee9;
+}
+
+.post {
+  flex-grow: 0;
+  font-size: 18px;
+  line-height: 1.6em;
+  max-width: 520px;
+}
+
+.post-title {
+  font-family: monospace;
+  color: #2e2e2e;
+}
