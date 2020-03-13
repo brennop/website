@@ -1,10 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import "../styles.css"
+import Footer from "../components/Footer"
 
 const IndexPage = ({ data }) => (
   <div className="layout">
     <div className="list">
-      <h2 className="title">posts</h2>
+      <h2 className="title">Blog</h2>
       {data &&
         data.allMarkdownRemark.edges.map(({ node }) => (
           <Link to={node.frontmatter.slug} key={node.id}>
@@ -12,6 +14,7 @@ const IndexPage = ({ data }) => (
           </Link>
         ))}
     </div>
+    <Footer />
   </div>
 )
 
