@@ -2,8 +2,6 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 
-import Sidebar from "../components/Sidebar"
-
 export const query = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
@@ -21,7 +19,6 @@ export default ({ data }) => {
   const { markdownRemark: post } = data
   return (
     <div className="layout">
-      <Sidebar />
       <div className="post">
         <Helmet title={post.frontmatter.title} />
         <div>
