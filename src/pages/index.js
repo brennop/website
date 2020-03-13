@@ -20,13 +20,13 @@ const IndexPage = ({ data }) => (
 
 export const query = graphql`
   query BlogPosts {
-    allMarkdownRemark(filter: { frontmatter: { type: { eq: "blog" } } }) {
+    allMarkdownRemark {
       edges {
         node {
           id
           frontmatter {
             slug
-            date
+            date(formatString: "YY-MM-DD")
             title
           }
         }
