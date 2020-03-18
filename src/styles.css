@@ -49,3 +49,7 @@ footer {
 .post pre {
   border-radius: 8px;
 }
+
+.post pre > code {
+  white-space: pre-wrap;
+}
