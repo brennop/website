@@ -55,7 +55,7 @@ js. A mágica vem do módulo [scroll
 snap](https://www.w3.org/TR/css-scroll-snap-1/), que faz
 a rolagem dar uma _'pregada'_.
 
-```
+```css
 body {
   scroll-snap-type: x mandatory;
   overflow-x: scroll;
@@ -76,7 +76,9 @@ atuais](https://caniuse.com/#search=scroll%20snap),
 incluindo mobile. Mas isso nem importa porque provavelmente
 vou apresentar os slides do meu computador.
 
-# nem tudo são flores ---
+# nem tudo são flores
+
+---
 
 Ok, eu levei uma tarde pra chegar nisso. E seguindo
 a filosofia de não codar nada e só hackear o que existe,
@@ -98,7 +100,7 @@ envolver títulos em tags \<section\>.
 Usando o pandoc (pode usar qualquer conversor) o comando que
 usei foi
 
-```
+```sh
 pandoc -s slides.md --css slides.css -o index.html --section-divs
 ```
 
@@ -110,4 +112,5 @@ O template `slides.css` pode ser encontrado
 ---
 
 [Web-based slideshow](https://en.wikipedia.org/wiki/Web-based_slideshow)
+
 [MDX Deck](https://github.com/jxnblk/mdx-deck)
