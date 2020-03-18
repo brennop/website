@@ -41,3 +41,11 @@ footer {
 .post p {
   line-height: 1.6em;
 }
+
+.post :not(pre) > code {
+  padding: .4em;
+}
+
+.post pre {
+  border-radius: 8px;
+}
