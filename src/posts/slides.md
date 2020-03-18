@@ -37,7 +37,7 @@ próprio jeito.
 Hoje eu trabalho na empresa júnior de computação da UnB,
 onde uso primariamente Javascript. Enquanto js facilita
 muito a nossa vida de dev, não acho que preciso de
-javascript pra uma aprsentação simples. Como o resultado
+javascript pra uma apresentação simples. Como o resultado
 deve ser html, é só usar o scroll da página pra passar os
 slides.
 
@@ -103,6 +103,8 @@ usei foi
 ```sh
 pandoc -s slides.md --css slides.css -o index.html --section-divs
 ```
+
+Você pode confirir uma demo [aqui](https://slides.brn.wtf).
 
 O template `slides.css` pode ser encontrado
 [aqui](https://gist.github.com/brennop/f75b7ba1ce575f3b8a764f04e36faadf).
