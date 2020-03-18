@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Mente do Breno`,
-    description: `What goes around comes around`,
+    title: `brn`,
+    description: `Blog do Brenno`,
     author: `@brennop`,
   },
   plugins: [
