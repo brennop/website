@@ -17,6 +17,11 @@ a:visited {
   color: #383838;
 }
 
+a:hover {
+  background-color: #383838;
+  color: #e4e4e4;
+}
+
 footer {
   margin: 2em auto;
   width: max-content;
