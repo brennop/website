@@ -2,7 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `brn`,
     description: `Blog do Brenno`,
-    author: `@brennop`,
+    url: "https://www.brn.wtf",
+    author: `@drennop`,
+    lang: `pt`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

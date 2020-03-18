@@ -2,9 +2,11 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import "../styles.css"
 import Footer from "../components/Footer"
+import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => (
   <div className="layout">
+    <SEO title="blog" />
     <div className="list">
       <h2 className="title">Blog</h2>
       {data &&

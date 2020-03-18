@@ -1,7 +1,7 @@
 import React from "react"
-import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Footer from "../components/Footer"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -20,8 +20,8 @@ export default ({ data }) => {
   const { markdownRemark: post } = data
   return (
     <div className="layout">
+      <SEO title={post.frontmatter.title} />
       <div className="post">
-        <Helmet title={post.frontmatter.title} />
         <div>
           <h1 className="post-title">{post.frontmatter.title}</h1>
           <div
