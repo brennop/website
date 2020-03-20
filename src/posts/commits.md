@@ -1,7 +1,8 @@
 ---
 slug: commits
-date: 2020-03-20
+date: {}
 title: Boas práticas de mensagens de commit
+published: true
 ---
 
 Esse post é um acompanhamento da minha apresentação no Focatalks #2. Siga para a leitura adicional para entender o porquê de se seguir essas boas práticas.
@@ -40,15 +41,11 @@ Um rodapé com referências.
 
 ## Regras 📜
 
----
-
 1. Limite o resumo a 50 caracteres
 2. Inicie com letra maiúscula e termine sem pontuação
 3. Escreva no imperativo
 
 ## Dicas
-
----
 
 - Seu resumo deve encaixar na frase
 
@@ -66,8 +63,6 @@ Um rodapé com referências.
 > Explica o quê e o porquê
 
 ## Regras 📜
-
----
 
 1. Deixe uma linha em branco entre o resumo e o corpo
 2. Limite as linhas a 72 caracteres
@@ -92,4 +87,3 @@ Um rodapé com referências.
 [gitmoji | An emoji guide to your commit messages](https://gitmoji.carloscuesta.me/)
 
 [Semantic commit messages](https://seesparkbox.com/foundry/semantic_commit_messages)
-
