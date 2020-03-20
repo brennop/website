@@ -1,8 +1,7 @@
 ---
 slug: commits
-date: {}
+date: 2020-03-20
 title: Boas práticas de mensagens de commit
-published: true
 ---
 
 Esse post é um acompanhamento da minha apresentação no Focatalks #2. Siga para a leitura adicional para entender o porquê de se seguir essas boas práticas.
