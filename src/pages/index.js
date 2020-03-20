@@ -11,9 +11,11 @@ const IndexPage = ({ data }) => (
       <h2 className="title">Blog</h2>
       {data &&
         data.allMarkdownRemark.edges.map(({ node }) => (
-          <Link to={node.frontmatter.slug} key={node.id}>
-            {node.frontmatter.date} {node.frontmatter.title}
-          </Link>
+          <p>
+            <Link to={node.frontmatter.slug} key={node.id}>
+              {node.frontmatter.date} {node.frontmatter.title}
+            </Link>
+          </p>
         ))}
     </div>
     <Footer />
