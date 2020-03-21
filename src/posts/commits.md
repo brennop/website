@@ -52,8 +52,10 @@ Um rodapé com referências.
 
 - Especifique o tipo do commit com uma palavra ou um emoji
 
-> bug: Corrige banner aparecendo duas vezes
-> 🌈 Aumenta margem no grid de usuários
+```zsh
+bug: Corrige banner aparecendo duas vezes
+🌈 Aumenta margem no grid de usuários
+```
 
 # O Corpo 🧍
 
