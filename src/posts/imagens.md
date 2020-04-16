@@ -4,7 +4,7 @@ date: 2020-04-15
 title: Fazendo imagens de divulgações com o Google Chrome
 ---
 
-![Esse post vai encelhecer mal](./meme.png)
+![Esse post vai encelhecer mal](./images/meme.png)
 
 Se não ficou claro pelo meu post sobre [slides](slides), eu
 adoro fazer coisas de um jeito criativo e diferente do
@@ -79,7 +79,7 @@ e não se perguntar se
 
 ## bônus
 
-Esse é o HTML do meme lá de cima.
+Esse é o HTML do meme lá de cima
 
 ```html
 <div
