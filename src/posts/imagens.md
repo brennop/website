@@ -1,7 +1,7 @@
 ---
 slug: imagens
 date: 2020-04-15
-title: Fazendo imagens de divulgações com o Google Chrome
+title: Fazendo imagens de divulgações com o Chrome
 ---
 
 ![Esse post vai encelhecer mal](./images/meme.png)
