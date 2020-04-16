@@ -1,8 +1,10 @@
 ---
 slug: imagens
 date: 2020-04-15
-title: Fazendo divulgações com o Google Chrome
+title: Fazendo imagens de divulgações com o Google Chrome
 ---
+
+![Esse post vai encelhecer mal](./meme.png)
 
 Se não ficou claro pelo meu post sobre [slides](slides), eu
 adoro fazer coisas de um jeito criativo e diferente do
@@ -59,7 +61,7 @@ finalizada na sua pasta de Downloads.
 
 Isso ta longe de substituir a minha ideia original, quem
 dirá ferramentas estabelecidas como o photoshop. Mas
-é melhor que o Gimp na minha opinião.
+é melhor que o Gimp pelo menos.
 
 CSS é todo sobre layout bem visualizáveis, então achar
 o posicionamento ideal dos elementos vai demandar tempo. Mas
@@ -74,3 +76,32 @@ a [Jasmine](https://youtu.be/UTbjH19gqBE?t=128) perguntando
 Não". Ás vezes a gente precisa ser um pouco Jurassic Park
 e não se perguntar se
 [devemos](https://www.youtube.com/watch?v=kY-pUxKQMUE).
+
+## bônus
+
+Esse é o HTML do meme lá de cima.
+
+```html
+<div
+  style="background-image: url('https://imgflip.com/s/meme/Expanding-Brain.jpg');height: 500px;background-size: 490px;background-repeat: no-repeat;width: 490px;"
+>
+  <div
+    style="height: 100%;display: flex;flex-direction: column;justify-content: space-around;font-family: Arial;font-weight: bold;text-shadow: 2px 2px 4px #0006, 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000;color: yellow;font-style: italic;font-size: 2em;width: 240px;align-items: center;"
+  >
+    <div class="pad">
+      Fazer um meme no Photoshop
+    </div>
+    <div class="pad">
+      Fazer um meme no mematic
+    </div>
+    <div class="pad">
+      Fazer um meme no Chrome
+    </div>
+  </div>
+  <div
+    style="position: relative;bottom: 20px;font-family: arial;font-weight: bold;color: white;text-shadow: 0 1px 2px #000000b0;"
+  >
+    made with mematic
+  </div>
+</div>
+```
