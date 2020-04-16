@@ -18,10 +18,12 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-prismjs"], // gatsby-remark-prismjs, gatsby-remark-copy-linked-files, gatsby-remark-images
+        plugins: [
+          "gatsby-remark-prismjs",
+          { resolve: "gatsby-remark-images", options: { maxWidth: 540 } },
+        ], // gatsby-remark-prismjs, gatsby-remark-copy-linked-files, gatsby-remark-images
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
