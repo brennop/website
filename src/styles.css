@@ -10,6 +10,7 @@ body {
 
 a {
   text-decoration: none;
+  border-bottom: 1px solid #777;
   color: #383838;  
 }
 
