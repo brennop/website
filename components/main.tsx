@@ -1,15 +1,20 @@
-import { forwardRef } from "react";
+import { useContext, useRef } from "react";
+import { WindowsContext } from "../contexts/windows";
 import Item from "./item";
+import Window from "./window";
 
 type Props = {
   files: string[];
   children?: React.ReactNode;
 };
 
-export default forwardRef<HTMLDivElement, Props>(function Main(
-  { files, children },
-  ref
+export default function Main(
+  { files }: Props,
 ) {
+  const constraintsRef = useRef(null!);
+
+  const { setFolder, folder, post, setPost } = useContext(WindowsContext);
+
   return (
     <main className="h-screen w-screen flex flex-col font-serif overflow-hidden">
 
@@ -26,13 +31,43 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
 
       <div
         className="relative bg-cyan-100 flex-1 p-2 flex flex-col flex-wrap items-start"
-        ref={ref}
+        ref={constraintsRef}
       >
         {files.map((file) => (
           <Item key={file} file={file} />
         ))}
-        {children}
+        {post && (
+          <Window
+            type="markdown"
+            constraintsRef={constraintsRef}
+            className="w-screen max-w-2xl h-full sm:h-5/6"
+            onClose={() => setPost?.(undefined)}
+          >
+            <div className="p-4">
+              <h1 className="text-2xl font-bold">{post.title}</h1>
+              <p className="text-sm text-gray-700">{post.date}</p>
+            </div>
+            <section
+              className="prose prose-h1:text-xl prose-h2:text-lg p-6 prose-p:text-justify"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </Window>
+        )}
+        {folder && (
+          <Window
+            type="folder"
+            constraintsRef={constraintsRef}
+            className="w-screen max-w-2xl h-full sm:h-5/6"
+            onClose={() => setFolder?.(undefined)}
+          >
+            <div>
+              {folder.map((file) => (
+                <div key={file}>{file}</div>
+              ))}
+            </div>
+          </Window>
+        )}
       </div>
     </main>
   );
-});
+};
