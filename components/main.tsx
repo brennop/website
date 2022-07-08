@@ -11,7 +11,7 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
   ref
 ) {
   return (
-    <main className="h-screen w-screen flex flex-col font-serif">
+    <main className="h-screen w-screen flex flex-col font-serif overflow-hidden">
 
       <nav className="h-10 p-2 bg-white border-b-2 border-gray-900 flex justify-between">
         <div className="flex items-center">
