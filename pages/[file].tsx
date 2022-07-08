@@ -46,7 +46,7 @@ export default function File({ files, content }: Props) {
   return (
     <Main files={files} ref={constraintsRef}>
       <motion.div
-        className="absolute left-0 top-0 md:top-8 md:left-32 w-screen max-w-2xl h-full sm:h-5/6 resize flex flex-col shadow-xl border-2 border-gray-700"
+        className="absolute left-0 top-0 md:top-8 md:left-32 w-screen max-w-2xl h-full sm:h-5/6 resize flex flex-col shadow-xl border-2 border-gray-900"
         drag
         dragControls={controls}
         dragListener={false}
@@ -55,17 +55,18 @@ export default function File({ files, content }: Props) {
         dragConstraints={constraintsRef}
       >
         <div
-          className="p-2 bg-white border-b-2 border-gray-700 flex justify-end"
+          className="p-1 bg-gray-900 border-b-2 border-gray-900 flex justify-end"
           onPointerDown={(event) => controls.start(event)}
         >
           <Link href="/">
-            <a className="text-gray-700 hover:text-gray-900">
-              x
+            <a className="relative w-4 h-4 bg-cyan-100 text-gray-900 grid place-items-center">
+              <span className="leading-[0]">×</span>
             </a>
           </Link>
         </div>
-        <div className="bg-white overflow-y-auto flex-1 p-4 " >
-          <div className="prose prose-h1:text-2xl p-2"
+        <div className="bg-white overflow-y-auto flex-1 p-4">
+          <div
+            className="prose prose-h1:text-2xl p-2"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>
