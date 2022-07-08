@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Main from "../components/main";
 import { getFiles } from "../lib/api";
 
 export async function getStaticProps() {
@@ -23,29 +24,7 @@ const Home: NextPage<Props> = ({ files }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-screen w-screen flex flex-col font-serif">
-        <div className="h-10 p-2 bg-white border-b-2 border-gray-900 flex justify-between">
-          <div className="flex items-center">
-            <span>
-              brenn<span className="align-super">os</span>
-            </span>
-          </div>
-          <div className="flex items-center">
-            <span>17:38</span>
-          </div>
-        </div>
-        <div className="bg-cyan-100 flex-1 p-2 flex flex-col flex-wrap items-start">
-          {files.map((file) => (
-            <div
-              key={file}
-              className="p-2 flex flex-col items-center w-20 select-none cursor-pointer"
-            >
-              <div className="text-3xl">📝</div>
-              <span className="text-sm bg-white">{file}</span>
-            </div>
-          ))}
-        </div>
-      </main>
+      <Main files={files} />
     </>
   );
 };
