@@ -15,8 +15,8 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
 
       <nav className="h-10 p-2 bg-white border-b-2 border-gray-900 flex justify-between">
         <div className="flex items-center">
-          <span>
-            brenn<span className="align-super">os</span>
+          <span className="text-purple-500/50 bg-clip-text bg-bottom bg-[url('/glitter.gif')]">
+            brennim
           </span>
         </div>
         <div className="flex items-center">
@@ -29,7 +29,7 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
         ref={ref}
       >
         {files.map((file) => (
-          <Item key={file} name={file} />
+          <Item key={file} file={file} />
         ))}
         {children}
       </div>

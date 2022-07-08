@@ -1,16 +1,23 @@
 import Link from "next/link";
 
 type Props = {
-  name: string;
+  file: string;
 }
 
-export default function Item({ name }: Props) {
-  return <Link href={`/${name}`}>
-    <a
-      className="p-2 flex flex-col items-center w-20 select-none cursor-pointer"
-    >
-      <div className="text-3xl">📝</div>
-      <span className="text-sm bg-white">{name}</span>
-    </a>
-  </Link>;
+export default function Item({ file }: Props) {
+  const [name, extension] = file.split(".");
+
+  switch (extension) {
+    case "md":
+      return (
+        <Link href={`/[file]`} as={`/${file}`}>
+          <a
+            className="p-2 flex flex-col items-center w-20 select-none cursor-pointer"
+          >
+            <div className="text-3xl">📝</div>
+            <span className="text-sm bg-white">{file}</span>
+          </a>
+        </Link>)
+    default: return null
+  }
 }
