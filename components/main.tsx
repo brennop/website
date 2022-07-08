@@ -15,7 +15,7 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
 
       <nav className="h-10 p-2 bg-white border-b-2 border-gray-900 flex justify-between">
         <div className="flex items-center">
-          <span className="text-purple-500/50 bg-clip-text bg-bottom bg-[url('/glitter.gif')]">
+          <span className="shadow-purple-200 text-shadow text-purple-500/70 bg-clip-text bg-bottom bg-[url('/glitter.gif')]">
             brennim
           </span>
         </div>

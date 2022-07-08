@@ -1,4 +1,7 @@
-# Projetinhos
+---
+title: Projetinhos
+date: 2022-07-07
+---
 
 ## dotpad
 
