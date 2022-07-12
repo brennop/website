@@ -1,15 +1,18 @@
 import { motion, useDragControls } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 type Props = {
   constraintsRef: React.MutableRefObject<HTMLDivElement | null>;
   children: React.ReactNode;
   className?: string;
-  name?: string;
 };
 
 export default function Window({ constraintsRef, children, className }: Props) {
   const controls = useDragControls();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => ref.current?.scrollTo({ top: 0, behavior: "smooth" }));
 
   return (
     <motion.div
@@ -35,7 +38,7 @@ export default function Window({ constraintsRef, children, className }: Props) {
           </a>
         </Link>
       </div>
-      <div className="bg-white overflow-y-auto flex-1">{children}</div>
+      <div className="bg-white overflow-y-auto flex-1" ref={ref}>{children}</div>
     </motion.div>
   );
 }

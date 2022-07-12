@@ -1,9 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { useRef } from "react";
 import Items from "../components/items";
 
-import Main from "../components/main";
 import Window from "../components/window";
 import { getFile, getFiles, getMarkdownFiles } from "../lib/api";
 import mdToHtml, { parseFrontmatter } from "../lib/mdToHtml";
