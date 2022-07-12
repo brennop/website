@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Main from "../components/main";
+import Items from "../components/items";
 import { getFiles } from "../lib/api";
 
 export async function getStaticProps() {
@@ -24,7 +24,7 @@ const Home: NextPage<Props> = ({ files }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Main files={files} />
+      <Items files={files} />
     </>
   );
 };

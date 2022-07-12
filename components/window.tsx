@@ -17,12 +17,12 @@ export default function Window({ constraintsRef, children, className }: Props) {
       className={`absolute left-0 top-0 md:top-8 md:left-32 resize flex flex-col shadow-xl border-2 border-gray-900 ${className}`}
       initial={{ scale: 0.6, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.6, opacity: 0 }}
+      exit={{ scale: 0, opacity: 0 }}
       drag
       dragControls={controls}
       dragListener={false}
       dragMomentum={false}
-      dragElastic={0}
+      dragElastic={0.1}
       dragConstraints={constraintsRef}
     >
       <div
