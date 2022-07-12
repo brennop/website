@@ -8,8 +8,6 @@ Esse post é um acompanhamento da minha apresentação no Focatalks #2. Siga par
 
 # O verdadeiro commando ✅
 
----
-
 Para escrever boas mensagens use `git commit`, sem o `-m`, para abrir o editor padrão. Desse jeito, você se força a parar um pouco e pensar na sua mensagem de commit. Além disso, os editores modernos te ajudam a manter as boas práticas, te indicando quando há muitos caracteres e pulando linhas automaticamente.
 
 Se o editor que o comando `git commit` abre não é o seu preferido, é só usar a configuração do git pra mudar:
@@ -19,8 +17,6 @@ git config --global core.editor "nano -w"
 ```
 
 # Anatomia de uma mensagem 🦴
-
----
 
 ```zsh
 Resumo curto que descreve o commit
@@ -33,8 +29,6 @@ Um rodapé com referências.
 ```
 
 # O resumo 🤏
-
----
 
 > Descrição consisa do que o commit faz
 
@@ -59,8 +53,6 @@ bug: Corrige banner aparecendo duas vezes
 
 # O Corpo 🧍
 
----
-
 > Explica o quê e o porquê
 
 ## Regras 📜
@@ -71,20 +63,12 @@ bug: Corrige banner aparecendo duas vezes
 
 # O Footer
 
----
-
 > Referências, issue tracker, pr, etc
 
 # Fontes e leitura adicional
 
----
-
-[How to write a commit message](https://chris.beams.io/posts/git-commit/)
-
-[Telling stories through your commits](https://blog.mocoso.co.uk/talks/2015/01/12/telling-stories-through-your-commits/)
-
-[A Branch in Time (a story about revision histories)](https://tekin.co.uk/2019/02/a-talk-about-revision-histories)
-
-[gitmoji | An emoji guide to your commit messages](https://gitmoji.carloscuesta.me/)
-
-[Semantic commit messages](https://seesparkbox.com/foundry/semantic_commit_messages)
+- [How to write a commit message](https://chris.beams.io/posts/git-commit/)
+- [Telling stories through your commits](https://blog.mocoso.co.uk/talks/2015/01/12/telling-stories-through-your-commits/)
+- [A Branch in Time (a story about revision histories)](https://tekin.co.uk/2019/02/a-talk-about-revision-histories)
+- [gitmoji | An emoji guide to your commit messages](https://gitmoji.carloscuesta.me/)
+- [Semantic commit messages](https://seesparkbox.com/foundry/semantic_commit_messages)
