@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { forwardRef } from "react";
 import Item from "./item";
 
@@ -31,7 +32,9 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
         {files.map((file) => (
           <Item key={file} file={file} />
         ))}
-        {children}
+        <AnimatePresence>
+          {children}
+        </AnimatePresence>
       </div>
     </main>
   );
