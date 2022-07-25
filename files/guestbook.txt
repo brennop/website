@@ -8,3 +8,7 @@ mensagem: uau brenninho vc e foda
 nome: Bill Gates
 data: 25-07-2022
 mensagem: o menino é bom
+
+nome: Marco Nemetala
+data: 25-07-2022
+mensagem: Amei jogar com a sua cobra
