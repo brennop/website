@@ -3,8 +3,9 @@ import Head from "next/head";
 import EmbedWindow from "../components/embed";
 import Items from "../components/items";
 import MarkdownWindow from "../components/markdown";
+import Window from "../components/window";
 
-import { getEmbedProps,  getFiles, getMarkdownProps } from "../lib/api";
+import { getEmbedProps, getFile, getFiles, getMarkdownProps } from "../lib/api";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const files = getFiles();
@@ -13,7 +14,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   switch (extension) {
     case "md": {
-      const {type, ...props} = await getMarkdownProps(filename);
+      const { type, ...props } = await getMarkdownProps(filename);
 
       return {
         props: {
@@ -25,12 +26,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       };
     }
     case "exe": {
-      const {type, ...props} = await getEmbedProps(filename);
+      const { type, ...props } = await getEmbedProps(filename);
 
       return {
         props: {
           type,
           props,
+          name,
+          files,
+        },
+      }
+    }
+    case "txt": {
+      const content = getFile(filename);
+
+      return {
+        props: {
+          type: "text",
+          props: {
+            content,
+          },
           name,
           files,
         },
@@ -73,6 +88,11 @@ type Props = {
   props: {
     url: string;
   }
+} | {
+  type: "text";
+  props: {
+    content: string;
+  }
 });
 
 export default function File({ type, files, name, constraintsRef, props }: Props) {
@@ -91,6 +111,14 @@ export default function File({ type, files, name, constraintsRef, props }: Props
       )}
       {type === "embed" && (
         <EmbedWindow constraintsRef={constraintsRef} {...props} />
+      )}
+      {type === "text" && (
+        <Window
+          constraintsRef={constraintsRef}
+          className="w-screen max-w-2xl h-full sm:h-5/6"
+        >
+          <pre className="p-2">{props.content}</pre>
+        </Window>
       )}
     </>
   );

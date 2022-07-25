@@ -1,0 +1,10 @@
+deixe seu nome: 
+https://github.com/brennop/website/edit/master/files/guestbook.txt
+
+nome: brennim
+data: 25-07-2022
+mensagem: uau brenninho vc e foda
+
+nome: Bill Gates
+data: 25-07-2022
+mensagem: o menino é bom

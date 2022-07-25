@@ -28,6 +28,16 @@ export default function Item({ file }: Props) {
             <span className="text-sm bg-white">{file}</span>
           </a>
         </Link>)
+    case "txt":
+      return (
+        <Link href={`/[file]`} as={`/${file}`}>
+          <a
+            className="p-2 flex flex-col items-center w-20 select-none cursor-pointer"
+          >
+            <div className="text-3xl">📄</div>
+            <span className="text-sm bg-white">{file}</span>
+          </a>
+        </Link>)
     default: return null
   }
 }
