@@ -16,3 +16,7 @@ mensagem: Amei jogar com a sua cobra
 nome: Gustavo Barros
 data: 25-07-22
 mensagem: minha cobra é mto rápida 🤠
+
+nome: Gustavo Barbosa
+data: 25-07-22
+mensagem: Faz o L
