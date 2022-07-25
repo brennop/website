@@ -12,3 +12,7 @@ mensagem: o menino é bom
 nome: Marco Nemetala
 data: 25-07-2022
 mensagem: Amei jogar com a sua cobra
+
+nome: Gustavo Barros
+data: 25-07-22
+mensagem: minha cobra é mto rápida 🤠
