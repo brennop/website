@@ -1,34 +1,47 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import EmbedWindow from "../components/embed";
 import Items from "../components/items";
+import MarkdownWindow from "../components/markdown";
 
-import Window from "../components/window";
-import { getFile, getFiles, getMarkdownFiles } from "../lib/api";
-import mdToHtml, { parseFrontmatter } from "../lib/mdToHtml";
+import { getEmbedProps,  getFiles, getMarkdownProps } from "../lib/api";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const files = getFiles();
-
   const filename = params?.file as string;
+  const [name, extension] = filename.split(".");
 
-  const file = getFile(filename);
-  const name = filename.replace(/\.md$/, "");
+  switch (extension) {
+    case "md": {
+      const {type, ...props} = await getMarkdownProps(filename);
 
-  const { content, data } = parseFrontmatter(file);
-  const html = await mdToHtml(content);
+      return {
+        props: {
+          type,
+          props,
+          name,
+          files,
+        },
+      };
+    }
+    case "exe": {
+      const {type, ...props} = await getEmbedProps(filename);
 
-  return {
-    props: {
-      files: files,
-      name: name,
-      content: html,
-      data: data,
-    },
-  };
+      return {
+        props: {
+          type,
+          props,
+          name,
+          files,
+        },
+      }
+    }
+    default: return { props: { type: "unknown", files } }
+  }
 };
 
 export async function getStaticPaths() {
-  const files = getMarkdownFiles();
+  const files = getFiles();
 
   return {
     paths: files.map((file) => {
@@ -44,16 +57,25 @@ export async function getStaticPaths() {
 
 type Props = {
   files: string[];
-  content: string;
   name: string;
-  data: {
-    title: string;
-    date: string;
-  };
   constraintsRef: React.MutableRefObject<HTMLDivElement | null>;
-};
+} & ({
+  type: "markdown";
+  props: {
+    html: string;
+    data: {
+      title: string;
+      date: string;
+    };
+  }
+} | {
+  type: "embed";
+  props: {
+    url: string;
+  }
+});
 
-export default function File({ files, content, data, name, constraintsRef }: Props) {
+export default function File({ type, files, name, constraintsRef, props }: Props) {
   return (
     <>
       <Head>
@@ -64,19 +86,12 @@ export default function File({ files, content, data, name, constraintsRef }: Pro
 
       <Items files={files} />
 
-      <Window
-        constraintsRef={constraintsRef}
-        className="w-screen max-w-2xl h-full sm:h-5/6"
-      >
-        <div className="p-4">
-          <h1 className="text-2xl font-bold">{data.title}</h1>
-          <p className="text-sm text-gray-700">{data.date}</p>
-        </div>
-        <section
-          className="prose prose-h1:text-xl prose-h2:text-lg p-6 prose-p:text-justify"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      </Window>
+      {type === "markdown" && (
+        <MarkdownWindow constraintsRef={constraintsRef} {...props} />
+      )}
+      {type === "embed" && (
+        <EmbedWindow constraintsRef={constraintsRef} {...props} />
+      )}
     </>
   );
 }
