@@ -5,53 +5,21 @@ import Items from "../components/items";
 import MarkdownWindow from "../components/markdown";
 import Window from "../components/window";
 
-import { getEmbedProps, getFile, getFiles, getMarkdownProps } from "../lib/api";
+import { getFile, getFiles } from "../lib/api";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const files = getFiles();
   const filename = params?.file as string;
-  const [name, extension] = filename.split(".");
+  const [name, _] = filename.split(".");
 
-  switch (extension) {
-    case "md": {
-      const { type, ...props } = await getMarkdownProps(filename);
+  const content = getFile(filename);
 
-      return {
-        props: {
-          type,
-          props,
-          name,
-          files,
-        },
-      };
-    }
-    case "exe": {
-      const { type, ...props } = await getEmbedProps(filename);
-
-      return {
-        props: {
-          type,
-          props,
-          name,
-          files,
-        },
-      }
-    }
-    case "txt": {
-      const content = getFile(filename);
-
-      return {
-        props: {
-          type: "text",
-          props: {
-            content,
-          },
-          name,
-          files,
-        },
-      }
-    }
-    default: return { props: { type: "unknown", files } }
+  return {
+    props: {
+      content,
+      name,
+      files,
+    },
   }
 };
 
@@ -72,30 +40,12 @@ export async function getStaticPaths() {
 
 type Props = {
   files: string[];
+  content: string;
   name: string;
   constraintsRef: React.MutableRefObject<HTMLDivElement | null>;
-} & ({
-  type: "markdown";
-  props: {
-    html: string;
-    data: {
-      title: string;
-      date: string;
-    };
-  }
-} | {
-  type: "embed";
-  props: {
-    url: string;
-  }
-} | {
-  type: "text";
-  props: {
-    content: string;
-  }
-});
+};
 
-export default function File({ type, files, name, constraintsRef, props }: Props) {
+export default function File({ files, content, name, constraintsRef }: Props) {
   return (
     <>
       <Head>
@@ -106,20 +56,12 @@ export default function File({ type, files, name, constraintsRef, props }: Props
 
       <Items files={files} />
 
-      {type === "markdown" && (
-        <MarkdownWindow constraintsRef={constraintsRef} {...props} />
-      )}
-      {type === "embed" && (
-        <EmbedWindow constraintsRef={constraintsRef} {...props} />
-      )}
-      {type === "text" && (
-        <Window
-          constraintsRef={constraintsRef}
-          className="w-screen max-w-2xl h-full sm:h-5/6"
-        >
-          <pre className="p-2">{props.content}</pre>
-        </Window>
-      )}
+      <Window
+        constraintsRef={constraintsRef}
+        className="w-screen max-w-2xl h-full sm:h-5/6"
+      >
+        <pre className="p-2">{content}</pre>
+      </Window>
     </>
   );
 }
