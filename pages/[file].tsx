@@ -1,8 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import EmbedWindow from "../components/embed";
 import Items from "../components/items";
-import MarkdownWindow from "../components/markdown";
 import Window from "../components/window";
 
 import { getFile, getFiles } from "../lib/api";
