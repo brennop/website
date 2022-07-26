@@ -35,5 +35,4 @@ const Folder: NextPage<Props> = ({ name, files, content, constraintsRef }) => {
   );
 };
 
-
 export default Folder;

@@ -18,11 +18,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       name,
       files,
     },
-  }
+  };
 };
 
 export async function getStaticPaths() {
-  const files = getFiles();
+  const files = getFiles().filter((name) => name.includes("."));
+  // exclude folders
 
   return {
     paths: files.map((file) => {

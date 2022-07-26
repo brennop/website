@@ -53,7 +53,13 @@ type Props = {
   constraintsRef: React.MutableRefObject<HTMLDivElement | null>;
 };
 
-export default function Post({ files, content, data, name, constraintsRef }: Props) {
+export default function Post({
+  files,
+  content,
+  data,
+  name,
+  constraintsRef,
+}: Props) {
   return (
     <>
       <Head>
