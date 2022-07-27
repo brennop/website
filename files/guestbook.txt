@@ -24,3 +24,7 @@ mensagem: Faz o L
 nome: José Costa
 data: 25-97-22
 mensagem: AI AI AI
+
+nome: Thaigo Chaves
+data: 26-07-22
+mensagem: Acertei de primeira izi
