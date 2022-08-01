@@ -28,3 +28,7 @@ mensagem: AI AI AI
 nome: Thaigo Chaves
 data: 26-07-22
 mensagem: Acertei de primeira izi
+
+nome: Gui
+data: 01-08-22
+mensagem: Tu fede. Mas até que é bonitinho
