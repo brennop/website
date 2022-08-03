@@ -19,11 +19,11 @@ conseguir subir minha própria VPN.
 Dei uma pesquisada e me deparei com esse
 [tutorial](https://blogs.oracle.com/developers/post/launching-your-own-free-private-vpn-in-the-oracle-cloud)
 pra subir uma OpenVPN na Oracle Cloud. Como já tinha uma servidor de minecraft
-lá, foi bem fácil subir a VPN. Segui os passos e tava lá.
+lá, foi bem fácil subir a VPN. Segui os passos e pronto.
 
 Parecia bom de mais para ser verdade. E era. A rede da UnB bloqueou todas as
-minhas tentativas de me conectar 😢. Mas eu sou brasileiro e não desisto (na
-real desisto direto kk). Dei uma pesquisada e encontrei o
+tentativas de me conectar 😢. Mas eu sou brasileiro e não desisto (mentira kk).
+Dei uma pesquisada e encontrei o
 [sshuttle](https://github.com/sshuttle/sshuttle). Vou deixar a descrição dessa
 ferramenta verbatim.
 
@@ -43,9 +43,9 @@ ruim do nada, tentei setar uma VPN _de verdade_ ™. Descobri o
 Infelizmente o TikTok é muito mais esperto e a VPN não funcionou, mas pelo menos
 funciona pra driblar a rede da UnB.
 
-Então se precisar acessar serviços zoados ou jogar um lolzinho na rede da UnB, 
-tente subir um servidor qualquer e usar o `sshuttle`. Se precisar de algo mais
-robusto, vai de `tailscale`.
+Então se precisar acessar serviços bloqueados ou jogar um lolzinho na rede da
+UnB, tente subir um servidor qualquer e usar o `sshuttle`. Se precisar de algo
+mais robusto, vai de `tailscale`.
 
 ## Bônus
 
