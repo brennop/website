@@ -38,7 +38,7 @@ tá tudo feito.
 ## Conclusão
 
 `sshuttle` me salvou no estágio. Mas nem uso mais. Quando minha fyp ficou muito
-ruim do nada, tentei setar uma VPN _de verdade_™. Descobri o
+ruim do nada, tentei setar uma VPN _de verdade_ ™. Descobri o
 [Tailscale](https://tailscale.com/) e subi outro server (como? descubra).
 Infelizmente o TikTok é muito mais esperto e a VPN não funcionou, mas pelo menos
 funciona pra driblar a rede da UnB.
