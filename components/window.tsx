@@ -20,7 +20,6 @@ export default function Window({ constraintsRef, children, className }: Props) {
 
   return (
     <motion.div
-      key="window"
       className={`absolute left-0 top-0 md:top-8 md:left-32 resize flex flex-col shadow-xl border-2 border-gray-900 ${className}`}
       initial={{ scale: 0.6, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
