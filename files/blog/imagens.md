@@ -4,7 +4,7 @@ date: 2020-04-15
 title: Fazendo imagens de divulgações com o Chrome
 ---
 
-![Esse post vai encelhecer mal](./images/meme.png)
+![Esse post vai encelhecer mal](/images/meme.png)
 
 No post mencionado eu falo sobre como eu uso markdown e css pra fazer algo que
 eles não foram feitos pra fazer: slides. Nesse post eu vou mostrar como eu uso
