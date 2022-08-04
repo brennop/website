@@ -13,9 +13,13 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
     <main className="h-screen w-screen flex flex-col font-serif overflow-hidden">
       <nav className="h-10 p-2 bg-white border-b-2 border-gray-900 flex justify-between">
         <div className="flex items-center">
-          <span className="shadow-purple-400 text-shadow text-purple-500/90 bg-clip-text bg-bottom bg-[url('/glitter.gif')]">
-            brennim
-          </span>
+          <img src="/desktop.gif" className="w-5 h-5 mr-2" />
+          <div className="relative">
+            <img src="/sparks.gif" className="absolute w-full h-full" />
+            <span className="shadow-sky-300 text-shadow-lg text-sky-500/80 bg-clip-text bg-bottom bg-[url('/glitter.gif')]">
+              brennim
+            </span>
+          </div>
         </div>
         <div className="flex items-center">
           <span>17:38</span>

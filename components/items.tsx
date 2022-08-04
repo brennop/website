@@ -8,8 +8,8 @@ type Props = {
 export default function Items({ files, base, ...props }: Props) {
   return (
     <ul {...props}>
-      {files.map((file) => (
-        <Item key={file} file={file} base={base} />
+      {files.map((file, index) => (
+        <Item key={file} file={file} base={base} first={index === 0 && !!base} />
       ))}
     </ul>
   );

@@ -18,9 +18,10 @@ function getEmoji(file: string) {
 type Props = {
   file: string;
   base?: string;
+  first?: boolean;
 };
 
-export default function Item({ file, base }: Props) {
+export default function Item({ file, base, first }: Props) {
   const emoji = getEmoji(file);
 
   const path = base ? `${base}/${file}` : file;
@@ -28,9 +29,12 @@ export default function Item({ file, base }: Props) {
   return (
     <li>
       <Link href={`/${path}`}>
-        <a className="p-2 flex flex-col items-center w-20 select-none cursor-pointer">
+        <a className="relative p-2 flex flex-col items-center w-20 select-none cursor-pointer">
           <div className="text-3xl">{emoji}</div>
           <span className="text-sm bg-white">{file}</span>
+          {first && (
+            <span className="absolute top-0 right-0 animate-pulse">🆕</span>
+          )}
         </a>
       </Link>
     </li>

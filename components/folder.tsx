@@ -14,7 +14,7 @@ const Folder: NextPage<Props> = ({ name, files, content, constraintsRef }) => {
   return (
     <>
       <Head>
-        <title>{name} - brennim</title>
+        <title>{`${name} - brennim`}</title>
         <meta name="description" content="site do brennim" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -26,7 +26,7 @@ const Folder: NextPage<Props> = ({ name, files, content, constraintsRef }) => {
         className="w-screen max-w-2xl h-full sm:h-96"
       >
         <Items
-          className="flex flex-wrap gap-2 p-2"
+          className="flex flex-wrap gap-3 p-2"
           base={name}
           files={content}
         />
