@@ -4,7 +4,18 @@ import { join } from "path";
 const filesDir = join(process.cwd(), "files");
 
 export function getFiles(path: string = ""): string[] {
-  return fs.readdirSync(join(filesDir, path));
+  return fs.readdirSync(join(filesDir, path)).sort((a, b) => {
+    const aIsFile = a.includes(".");
+    const bIsFile = b.includes(".");
+
+    if (aIsFile && !bIsFile) {
+      return 1;
+    } else if (!aIsFile && bIsFile) {
+      return -1;
+    } else {
+      return a.localeCompare(b);
+    }
+  });
 }
 
 export function getMarkdownFiles(): string[] {
