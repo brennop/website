@@ -10,6 +10,8 @@ function getEmoji(file: string) {
       return "💻";
     case "txt":
       return "📄";
+    case "jpg":
+      return "🖼️";
     default:
       return "📁";
   }
