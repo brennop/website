@@ -3,7 +3,7 @@ import Head from "next/head";
 import Items from "../../components/items";
 import { getFiles } from "../../lib/api";
 import Window from "../../components/window";
-import {useEffect, useState} from "react";
+import { useEffect } from "react";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const filename = params?.photo as string;
@@ -61,7 +61,7 @@ export default function Photo({ file, files, filename, constraintsRef }: Props) 
       <Window
         constraintsRef={constraintsRef}
       >
-        <img src={file.src} className="max-h-96"/>
+        <img src={file.src} className="max-h-[512px]"/>
       </Window>
   </>
   );
