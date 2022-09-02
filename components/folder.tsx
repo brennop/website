@@ -26,7 +26,7 @@ const Folder: NextPage<Props> = ({ name, files, content, constraintsRef }) => {
         className="w-screen max-w-2xl h-full sm:h-96"
       >
         <Items
-          className="flex flex-wrap gap-3 p-2"
+          className="grid sm:grid-cols-5 grid-cols-3 place-items-center gap-4 p-2"
           base={name}
           files={content}
         />
