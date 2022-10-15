@@ -1,17 +1,20 @@
 import { join } from "path";
 import { promises as fs } from 'fs';
+import { sortFiles } from "$lib/utils/sorter";
 
-import type { PageServerLoad } from "./$types";
+import type { LayoutServerLoad } from "./$types";
 
 const filesDir = join(process.cwd(), "files");
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: LayoutServerLoad = async ({ params }) => {
   const folder = await fs.readdir(join(filesDir, params.folder));
+  
+  const sorted = await sortFiles(folder, params.folder);
 
-  const files = folder.map((file) => {
+  const files = sorted.map((file) => {
     return {
-      name: file,
-      path: join(params.folder, file),
+      name: file.name,
+      path: join("/", params.folder, file.name),
     }
   });
 

@@ -2,12 +2,14 @@
   import { draggable } from "$lib/actions/draggable";
 
   export let previous;
+  export let additionalClasses;
 
   let handle: HTMLElement;
 </script>
 
 <div
-  class="absolute left-0 top-0 flex resize flex-col border-2 border-black bg-white shadow-xl md:top-8 md:left-32"
+  class="absolute left-0 top-0 flex resize flex-col border-2 border-black
+  bg-white shadow-xl md:top-8 md:left-32 {additionalClasses}"
   use:draggable={{ handle }}
 >
   <div
@@ -22,7 +24,5 @@
       <span>×</span></a
     >
   </div>
-  <div class="content">
-    <slot />
-  </div>
+  <slot />
 </div>
