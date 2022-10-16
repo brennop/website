@@ -2,7 +2,7 @@
   import { draggable } from "$lib/actions/draggable";
 
   export let previous;
-  export let additionalClasses;
+  export let additionalClasses: string = "";
 
   let handle: HTMLElement;
 </script>

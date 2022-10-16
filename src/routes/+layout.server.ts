@@ -18,3 +18,5 @@ export const load = async () => {
 
   return { files };
 }
+
+export const prerender = true;

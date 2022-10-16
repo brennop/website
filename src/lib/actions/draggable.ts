@@ -30,7 +30,7 @@ export function draggable(
     if (rect.left < 0) node.style.left = "0px";
     if (rect.top < HEADER_HEIGHT) node.style.top = `0px`;
     if (rect.right > window.innerWidth) node.style.left = `${window.innerWidth - rect.width}px`;
-    if (rect.bottom > window.innerHeight) node.style.top = `${window.innerHeight - rect.height}px`;
+    if (rect.bottom > window.innerHeight + HEADER_HEIGHT) node.style.top = `${window.innerHeight - rect.height}px`;
 	}
 
 	handle.addEventListener('mousedown', handleMouseDown);
