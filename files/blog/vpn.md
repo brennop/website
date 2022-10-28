@@ -47,6 +47,8 @@ Então se precisar acessar serviços bloqueados ou jogar um lolzinho na rede da
 UnB, tente subir um servidor qualquer e usar o `sshuttle`. Se precisar de algo
 mais robusto, vai de `tailscale`.
 
+> _Update_: acabei de descobrir que o CEO do tailscale é o criador do sshuttle.
+
 ## Bônus
 
 Usem [uBlock Origin](https://ublockorigin.com/) na rede da UnB. Não só bloqueiem
