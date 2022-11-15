@@ -13,7 +13,19 @@ coincidência) quando li o anúncio. Meu queixo caiu. Aquilo foi uma das coisas
 mais fantásticas que eu já tinha visto.
 
 Mal sabia eu o que ocorreria nos próximos meses. Não só os modelos evoluíram
-numa taxa assustadora, também ficaram bem mais acessíveis. 
+numa taxa assustadora, também ficaram bem mais acessíveis. [Vários](imagen)
+[novos](midjourney) [modelos](outro do google) surgiram, cada um aprendendo com
+o anterior.
+
+## titulo
+
+Mas isso tudo mudou quando o Stable Diffusion foi liberado ao público. <intro>
+mas com um diferencial: os criadores liberaram os pesos. Isso quer dizer que nós
+meros mortais podemos reproduzir os resultados em casa, sem ter uma empresa
+como gatekeeper do uso da tecnologia.
+
+Isso liberou a caixa de pandora. Rapidamente a comunidade começou a utilizar e
+melhorar o programa. 
 
 ## Domesticando a IA
 
@@ -61,9 +73,11 @@ vão alguns dos meus sentimentos para o futuro.
 
 TODO
 
-### 1. A internet será consumida pela IA
+### 1. Os modelos vão melhorar
 
-### 2. Nossa percepção da realidade vai mudar
+### 2. A internet será consumida pela IA
 
-### 3. Nossa percepção de nós mesmos vai mudar
+### 3. Nossa percepção da realidade vai mudar
+
+### 4. Nossa percepção de nós mesmos vai mudar
 
