@@ -60,11 +60,31 @@ apelido/username. Eu usei `brennop` por exemplo.
 Agora vamos treinar. Esse é o [link do colab](https://colab.research.google.com/github/TheLastBen/fast-stable-diffusion/blob/main/fast-DreamBooth.ipynb).
 Se nunca usou um colab, basta rodar os passos em sequência com o botão de play.
 
+Antes de começar a rodar, crie uma conta no [Hugging Face](https://huggingface.co).
+Depois de criada, vá em `Settings -> Access Tokens -> New token`. Agora acesse
+[esse link](https://huggingface.co/runwayml/stable-diffusion-v1-5) e clique no
+grande botão no meio da tela dizendo pra ~vender seus direitos pro google~
+concordar com os termos.
+
+Vamos preencher os campos. Os que não souber não precisa preencher:
+
+- `Huggingface_Token`: o token que acabmos de criar
+- `Session_name`: sugiro usar o mesmo nome que deu para as imagens
+- `Contains_faces`: selecione a opção apropriada
+- `Training_Steps`: geralmente n de fotos * 100.
+- `Save_Checkpoint_Every_n_Steps`: recomendo ativar caso tenha bastante espaço
+  sobrando no seu drive. Caso o colab falhe não vai precisar começar do zero
+
+Agora basta rodar cada célula em sequência até que tenha um ✓ em cada uma. A
+parte de treino vai demorar (algo em torno de 2 horas) então tenha paciência.
+
 ### 3. Se desenhe
 
 Essa é a parte mais difícil (e mais divertida). Dominar o modelo de text (CLIP)
 é um desafio por si só. Mas vou dar algumas dicas aqui para garantir que ele
 gere um pouco do que você quer.
+
+TODO
 
 ## Previsões
 
