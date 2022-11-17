@@ -28,3 +28,19 @@ mensagem: AI AI AI
 nome: Thaigo Chaves
 data: 26-07-22
 mensagem: Acertei de primeira izi
+
+nome: Gui
+data: 01-08-22
+mensagem: Tu fede. Mas até que é bonitinho
+
+nome: Zito do futuro
+data: 04-08-32
+mesagem: Nosso filho é lindo 🥰
+
+nome: Zorron
+data: 27-09-22
+mensagem: sou teu fa demais =)
+
+nome: tilnoene
+data: 31-10-22
+mensagem: eu também sou seu ídolo
