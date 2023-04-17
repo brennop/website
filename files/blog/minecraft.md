@@ -1,4 +1,7 @@
-# Meu próprio Minecraft
+---
+title: Meu próprio Minecraft
+date: 2023-04-10
+---
 
 É estranho pensar que fazem mais de 10 anos que eu criei meu primeiro mundo no
 Minecraft. Depois desse tempo todo ainda não consigo descrever como era. Parecia
@@ -76,15 +79,14 @@ amplitude = amplitude / 2 frequency = frequency * 2
 ```
 
 Depois que uma *chunk* é gerada, precisamos gerar uma *mesh* para ela. Uma
-*mesh* é simplesmente uma coleção de vértices. Esse *mesh* é então enviado para
-a GPU para ser desenhado.
+*mesh* é simplesmente uma coleção de vértices que é enviado para a GPU para ser
+desenhado.
 
-Existem vários algoritmos para *meshing* eficiente, mas aqui só passamos por
-todos os blocos do *chunk* verificando se cada face é visível (não está
-obstruída). Se sim, adicionamos ao nosso *mesh*. Mas isso precisa ser feito 16 *
-16 * 48 * 6 vezes por *chunk*, o que geralmente é bem lento. Então, ao invés de
-encontrar um algoritmo melhor, eu só delego isso para uma thread. Então
-lunarcraft é multithread 🙂.
+Existem vários algoritmos para *meshing* eficiente. Aqui só iteramos pelos
+blocos checando se cada face é visível (não está obstruída). Mas isso precisa ser
+feito 16 * 16 * 48 * 6 vezes por *chunk*. Isso é terrívelmente lento :crying:. 
+Então eu decide apelar para a thread. Dessa forma, a renderização não fica esperando
+o mundo ser gerado.
 
 Durante esse processo, calculamos para cada vértice sua coordenada de textura,
 seu vetor normal, para cálculos de iluminação, e o seu *ambient occlusion* [4].
