@@ -29,19 +29,12 @@ agora só sabia fazer jogos 2D com LÖVE [3]. Como eu faço 3D então?
 LÖVE é incrivelmente versátil. Tem suporte a várias funcionalidades, incluindo
 texturas, vértices, shaders. Acontece que é tudo que precisa para fazer 3D,
 desde que saiba multiplicar matrizes. 3D não é nada mais do que um vértices de 3
-dimensões (x, y, z). 
+dimensões (x, y, z). A gente pega esse vértice e multiplica por uma matriz de
+transformação. Essa matriz pode mover, dimensionar e rotacionar o vértice.
 
-Podemos pegar esses vértices e multiplicá-los por uma
-matriz de transformação, pra mover, dimensionar e rotacionar. Chamamos essa
-matriz de Model. Esses vértices são vistos por uma câmera. Ao contrário da nossa
-intuição, quando andamos para frente em um jogo 3D, não é a câmera que se move
-para frente, e sim o mundo que vai para trás. Para fazer isso, podemos construir
-uma matriz com a posição da câmera, e vetores dizendo para onde é a frente e
-para onde é cima. Para mover o mundo basta multiplicar. Chamamos essa matriz de
-View. Até agora tudo bem, mas nossa tela é 2D, então precisamos projetar esses
-vértices transformados de 3 dimensões para 2. Fazemos isso com, adivinha, uma
-matriz. Essa matriz codifica o campo de visão e outras informações e chamamos
-ela de Projection.
+Esse vértice é visto do ponto de vista de uma câmera, que é representada por
+outra matriz, a matriz de visão, que codifica a posição e a orientação da
+câmera. Por fim, temos a matriz de projeção, pra projetar o ponto 3D na tela 2D.
 
 No fim, temos essa equação:
 
