@@ -13,6 +13,19 @@ module.exports = {
         DEFAULT: '0 0px 4px var(--tw-shadow-color)',
         lg: '0 0px 16px var(--tw-shadow-color)',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            kbd: {
+              backgroundColor: 'var(--tw-prose-invert-body)',
+              borderRadius: '0',
+              padding: '2px 4px',
+              margin: '0 2px',
+              boxShadow: '-2px 2px 0px 0px var(--tw-prose-lead)',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [

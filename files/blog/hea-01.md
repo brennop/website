@@ -1,5 +1,5 @@
 ---
-title: HEAnV #01
+title: "HEAnV #01"
 date: 2023-07-26
 ---
 
@@ -32,7 +32,7 @@ options are not restored when the LSP client is stopped or detached.
 
 # O que isso significa
 
-- O complete do neovim já usa a LSP com <kbd>Ctrl</kbd><kbd>x</kbd><kbd>Ctrl</kbd><kbd>o</kbd>
+- O complete do neovim já funciona com LSP: <kbd>Ctrl</kbd><kbd>x</kbd><kbd>Ctrl</kbd><kbd>o</kbd>
 - As tags do neovim também usam a LSP:
     * <kbd>Ctrl</kbd><kbd>]</kbd>: abre a definição
     * <kbd>Ctrl</kbd><kbd>w</kbd><kbd>]</kbd>: abre a definição em um split
