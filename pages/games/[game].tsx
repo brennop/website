@@ -68,7 +68,7 @@ export default function Post({
 
       <Items files={files} />
 
-      <Window constraintsRef={constraintsRef} className="">
+      <Window constraintsRef={constraintsRef} className="h-min">
         <iframe
           width={width}
           height={height}
