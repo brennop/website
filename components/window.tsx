@@ -24,7 +24,7 @@ export default function Window({ constraintsRef, children, className }: Props) {
       initial={{ scale: 0.6, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.6, opacity: 0 }}
-      transition={{ duration: 0.15 }}
+      transition={{ duration: 0.1 }}
       drag
       dragControls={controls}
       dragListener={false}
