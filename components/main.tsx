@@ -1,4 +1,3 @@
-import { AnimatePresence } from "framer-motion";
 import { forwardRef } from "react";
 
 type Props = {
@@ -27,12 +26,10 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
       </nav>
 
       <div
-        className="relative bg-cyan-100 flex-1 p-2 flex flex-col flex-wrap items-start"
+        className="relative bg-cyan-100 flex-1 h-0 sm:p-2 flex gap-2"
         ref={ref}
       >
-        <AnimatePresence exitBeforeEnter initial={false}>
-          {children}
-        </AnimatePresence>
+        {children}
       </div>
     </main>
   );
