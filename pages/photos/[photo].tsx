@@ -60,6 +60,7 @@ export default function Photo({ file, files, filename, constraintsRef }: Props) 
 
       <Window
         constraintsRef={constraintsRef}
+        className="h-min"
       >
         <img src={file.src} className="max-h-[512px]"/>
       </Window>

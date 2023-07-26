@@ -18,7 +18,7 @@ export default function Window({ children, className }: Props) {
 
   return (
     <div
-      className={`resize flex flex-col shadow-xl border-2 border-gray-900 ${className}`}
+      className={`resize sm:mt-4 flex flex-col shadow-xl border-2 border-gray-900 ${className}`}
     >
       <div
         className="p-1 bg-gray-900 border-b-2 border-gray-900 flex justify-end"

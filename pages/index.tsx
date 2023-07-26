@@ -24,7 +24,7 @@ const Home: NextPage<Props> = ({ files }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Items files={files} />
+      <Items files={files} className="block" />
     </>
   );
 };
