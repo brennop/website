@@ -72,7 +72,7 @@ export default function Post({
 
       <Window
         constraintsRef={constraintsRef}
-        className="h-5/6"
+        className="sm:h-5/6"
       >
         <div className="p-8 pb-0 max-w-md">
           <h1 className="text-2xl font-bold">{data.title}</h1>
