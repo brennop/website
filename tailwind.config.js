@@ -23,6 +23,10 @@ module.exports = {
               margin: '0 2px',
               boxShadow: '-2px 2px 0px 0px var(--tw-prose-lead)',
             },
+            'pre code': {
+              width: '0',
+              display: 'block',
+            }
           },
         },
       },
