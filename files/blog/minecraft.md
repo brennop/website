@@ -18,8 +18,7 @@ Escrevi meu próprio Minecraft.
 
 Eu amo Lua e amo LÖVE [^2]. É um framework extremamente versátil para joguinhos
 2D. "Mas o minezinho é três-dê" você diz. Bom, 3D é apenas uma dimensão a mais
-projetada na sua tela. Pra fazer isso, basta multiplicar umas matrizes e tá
-pronto.
+projetada na sua tela. Pra isso, basta multiplicar umas matrizes e tá pronto.
 
 ```glsl
 uniform mat4 projectionMatrix;
@@ -42,8 +41,8 @@ alivia para a GPU desenhar o mundo, mas também facilita fazer as atualizações
 cada frame.
 
 Nossa versão não é diferente. Dividimos o mundo em pedaços de 16x48x16. Esses
-*chunks* são gerados aleatoriamente. Pra fazer isso usamos ruído *Perlin*, que
-LOVE convenientemente fornece pra gente.
+*chunks* são gerados aleatoriamente. Pra isso usamos ruído *Perlin*, que LOVE
+convenientemente fornece pra gente.
 
 ```lua
 height = height + love.math.noise(x * frequency, z * frequency) * amplitude 
@@ -74,8 +73,9 @@ tempo, só uma demonstração da parte visual. Adicionei apenas colisão (AABB) 
 _raycasting_ para destruir e construir blocos. Confesso que não entendo muito
 bem a implementação de ambos.
 
-Adicionei algumas coisinhas que o Minecraft não tem, como sombras de verdade e
-_dithering_ no lugar da transparência. O resultado é esse mundinho aí.
+Adicionei também algumas coisinhas que o Minecraft não tem, como sombras de
+verdade e _dithering_ no lugar da transparência. O resultado é esse mundinho
+aí.
 
 ![mundo](/images/minecraft/world.png)
 
@@ -83,8 +83,8 @@ _dithering_ no lugar da transparência. O resultado é esse mundinho aí.
 
 3D não é tão difícil assim. Recomendo dar uma pesquisada e tentar fazer a sua
 própria engine. Minecraft é um ótimo projeto pra testar isso. Fui um pouco
-mordido pela otimização prematura e agora o código é bem feio. Mas se quiser
-dar uma olhada pra ter uma referência, ou até testar ta aqui:
+mordido pela otimização prematura e o código ficou bem feio. Mas se quiser
+dar uma olhada pra ter uma referência, ou até mesmo testar, ta aqui:
 
 - [lunarcraft](https://github.com/brennop/lunarcraft)
 
