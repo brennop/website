@@ -79,7 +79,7 @@ export default function Post({
           <p className="text-sm text-gray-700">{data.date}</p>
         </div>
         <section
-          className="prose prose-h1:text-xl prose-h2:text-lg p-10 prose-p:text-justify"
+          className="prose prose-h1:text-xl prose-h2:text-lg p-8 prose-p:text-justify"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </Window>

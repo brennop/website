@@ -91,7 +91,7 @@ Se der `segfault` relaxa, faz parte da experiência 😎.
 
 ---
 
-[^1]: [https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1284429-1-2-5-simple-guns-mod-beta-1-2](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1284429-1-2-5-simple-guns-mod-beta-1-2)
+[^1]: [[1.2.5]Simple Guns Mod (Beta 1.2)](https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/minecraft-mods/1284429-1-2-5-simple-guns-mod-beta-1-2)
 / [https://archive.is/05f90](https://archive.is/05f90)
 
-[^2]: [https://0fps.net/2013/07/03/ambient-occlusion-for-minecraft-like-worlds/](https://0fps.net/2013/07/03/ambient-occlusion-for-minecraft-like-worlds/)
+[^2]: [Ambient occlusion for Minecraft-like worlds](https://0fps.net/2013/07/03/ambient-occlusion-for-minecraft-like-worlds/)
