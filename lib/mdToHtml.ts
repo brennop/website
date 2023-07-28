@@ -1,6 +1,7 @@
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
 import rehypeExternalLinks from "rehype-external-links";
@@ -20,7 +21,11 @@ export function parseFrontmatter(markdown: string) {
 export default async function mdToHtml(markdown: string) {
   const result = await unified()
     .use(remarkParse)
-    .use(remarkRehype, { allowDangerousHtml: true})
+    .use(remarkGfm)
+    .use(remarkRehype, { 
+      allowDangerousHtml: true,
+      footnoteLabel: "Notas",
+    })
     .use(rehypeRaw)
     .use(rehypeExternalLinks, {
       target: "_blank",
