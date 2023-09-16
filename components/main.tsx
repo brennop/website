@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { AnimatePresence } from "framer-motion";
 
 type Props = {
   children?: React.ReactNode;
@@ -29,7 +30,7 @@ export default forwardRef<HTMLDivElement, Props>(function Main(
         className="relative bg-cyan-100 flex-1 h-0 sm:p-2 flex gap-2"
         ref={ref}
       >
-        {children}
+        <AnimatePresence mode="wait" initial={false}>{children}</AnimatePresence>
       </div>
     </main>
   );
