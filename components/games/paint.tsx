@@ -33,46 +33,44 @@ const bayerMatrix = [
   [15, 7, 13, 5],
 ];
 
-export function draw(
+function drawPixel(
   context: CanvasRenderingContext2D,
-  data: Float32Array,
-  t: number,
+  value: number,
+  x: number,
+  y: number,
 ) {
-  for (let i = 0; i < SIZE; i++) {
-    for (let j = 0; j < SIZE; j++) {
-      const value = data[i + j * SIZE];
 
-      for (let k = 0; k < DITHER_SCALE * DITHER_SCALE; k++) {
-        const newValue =
-          value +
-          bayerMatrix[k % DITHER_SCALE][Math.floor(k / DITHER_SCALE)] /
-            (DITHER_SCALE * DITHER_SCALE);
-        const color = pallet[Math.floor(newValue) & 0xf];
-        context.fillStyle = color;
-        context.fillRect(
-          i * PIXEL_SIZE + ((k % DITHER_SCALE) * PIXEL_SIZE) / DITHER_SCALE,
-          j * PIXEL_SIZE +
-            (Math.floor(k / DITHER_SCALE) * PIXEL_SIZE) / DITHER_SCALE,
-          PIXEL_SIZE / DITHER_SCALE,
-          PIXEL_SIZE / DITHER_SCALE,
-        );
-      }
-    }
+  for (let k = 0; k < DITHER_SCALE * DITHER_SCALE; k++) {
+    const newValue =
+      value +
+      bayerMatrix[k % DITHER_SCALE][Math.floor(k / DITHER_SCALE)] /
+      (DITHER_SCALE * DITHER_SCALE);
+
+    const color = pallet[Math.floor(newValue) & 0xf];
+
+    context.fillStyle = color;
+    context.fillRect(
+      x * PIXEL_SIZE + ((k % DITHER_SCALE) * PIXEL_SIZE) / DITHER_SCALE,
+      y * PIXEL_SIZE +
+      (Math.floor(k / DITHER_SCALE) * PIXEL_SIZE) / DITHER_SCALE,
+      PIXEL_SIZE / DITHER_SCALE,
+      PIXEL_SIZE / DITHER_SCALE,
+    );
   }
 }
 
 function drawAt(
-  data: Float32Array,
+  context: CanvasRenderingContext2D,
   x: number,
   y: number,
   size: number,
   value: number,
 ) {
-  for (let i = -size; i < size; i++) {
-    for (let j = -size; j < size; j++) {
-      if (i * i + j * j < size * size) {
-        const index = Math.floor(x + i) + Math.floor(y + j) * SIZE;
-        data[index] = value;
+  for (let i = -size; i <= size; i++) {
+    for (let j = -size; j <= size; j++) {
+      const dist = Math.sqrt(i * i + j * j);
+      if (dist <= size) {
+        drawPixel(context, value, Math.floor(x + i), Math.floor(y + j));
       }
     }
   }
@@ -80,24 +78,23 @@ function drawAt(
 
 export default function Paint() {
   const canvas = useRef<HTMLCanvasElement>(null);
-  const animationFrame = useRef<number | null>(null);
   const lastPosition = useRef<{ x: number; y: number } | null>({ x: 0, y: 0 });
   const value = useRef(0);
-
-  const data = useRef<Float32Array>(
-    new Float32Array(CANVAS_SIZE * CANVAS_SIZE),
-  );
-  const [brushSize, setBrushSize] = useState(1);
+  const [brushSize, setBrushSize] = useState(0);
 
   useEffect(() => {
-    draw(canvas.current!.getContext("2d")!, data.current!, 0);
+    const context = canvas.current!.getContext("2d")!;
+    context.fillStyle = pallet[12];
+    context.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE);
   }, []);
 
   const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
-    if (e.buttons !== 1) return;
+    if (e.buttons === 0) return;
 
     const x = Math.floor(e.nativeEvent.offsetX / PIXEL_SIZE);
     const y = Math.floor(e.nativeEvent.offsetY / PIXEL_SIZE);
+
+    const context = canvas.current!.getContext("2d")!;
 
     if (lastPosition.current != null) {
       while (
@@ -110,20 +107,20 @@ export default function Paint() {
         const nx: number = lastPosition.current.x + dx / d;
         const ny: number = lastPosition.current.y + dy / d;
 
-        drawAt(data.current!, nx, ny, brushSize, value.current);
+        const color = e.buttons === 1 ? value.current : 12;
+
+        drawAt(context, nx, ny, brushSize, color);
         lastPosition.current = { x: nx, y: ny };
         value.current += CHANGE_RATE;
       }
     }
-
-    draw(canvas.current!.getContext("2d")!, data.current!, 0);
   };
 
   const handleWheel = (e: React.WheelEvent<HTMLCanvasElement>) => {
     e.preventDefault();
 
     setBrushSize(
-      Math.floor(Math.max(1, Math.min(brushSize + -e.deltaY / 100, 16))),
+      Math.floor(Math.max(0, Math.min(brushSize + -e.deltaY / 100, 8))),
     );
   };
 
@@ -133,16 +130,17 @@ export default function Paint() {
       y: e.nativeEvent.offsetY / PIXEL_SIZE,
     };
 
+    const color = e.buttons === 1 ? value.current : 12;
+
     drawAt(
-      data.current!,
+      canvas.current!.getContext("2d")!,
       lastPosition.current.x,
       lastPosition.current.y,
       brushSize,
-      value.current,
+      color,
     );
 
-    draw(canvas.current!.getContext("2d")!, data.current!, 0);
-    value.current += CHANGE_RATE;
+    value.current += CHANGE_RATE * 10;
   };
 
   return (
@@ -154,6 +152,7 @@ export default function Paint() {
         onPointerMove={handlePointerMove}
         onPointerUp={() => (lastPosition.current = null)}
         onPointerDown={handlePointerDown}
+        onContextMenu={(e) => e.preventDefault()}
         onWheel={handleWheel}
       />
     </div>
