@@ -22,9 +22,8 @@ const pallet = [
 const SIZE = 64;
 const CANVAS_SIZE = 256;
 const PIXEL_SIZE = CANVAS_SIZE / SIZE;
-const TIMESCALE = 1 / 256;
 const DITHER_SCALE = 4;
-const CHANGE_RATE = 0.01;
+const CHANGE_RATE = 0.001;
 
 const bayerMatrix = [
   [0, 8, 2, 10],
@@ -79,8 +78,8 @@ function drawAt(
 export default function Paint() {
   const canvas = useRef<HTMLCanvasElement>(null);
   const lastPosition = useRef<{ x: number; y: number } | null>({ x: 0, y: 0 });
-  const value = useRef(0);
-  const [brushSize, setBrushSize] = useState(0);
+  const value = useRef(Math.random() * 16);
+  const [brushSize, _setBrushSize] = useState(1);
 
   useEffect(() => {
     const context = canvas.current!.getContext("2d")!;
@@ -108,10 +107,10 @@ export default function Paint() {
         const ny: number = lastPosition.current.y + dy / d;
 
         const color = e.buttons === 1 ? value.current : 12;
+        const size = e.buttons === 1 ? brushSize : 3;
 
-        drawAt(context, nx, ny, brushSize, color);
+        drawAt(context, nx, ny, size, color);
         lastPosition.current = { x: nx, y: ny };
-        value.current += CHANGE_RATE;
       }
     }
   };
@@ -119,9 +118,7 @@ export default function Paint() {
   const handleWheel = (e: React.WheelEvent<HTMLCanvasElement>) => {
     e.preventDefault();
 
-    setBrushSize(
-      Math.floor(Math.max(0, Math.min(brushSize + -e.deltaY / 100, 8))),
-    );
+    value.current += e.deltaY * CHANGE_RATE;
   };
 
   const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -139,8 +136,6 @@ export default function Paint() {
       brushSize,
       color,
     );
-
-    value.current += CHANGE_RATE * 10;
   };
 
   return (
