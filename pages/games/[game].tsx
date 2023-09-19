@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import Items from "../../components/items";
+import dynamic from "next/dynamic";
 
 import Window from "../../components/window";
 import { getFile, getFiles } from "../../lib/api";
@@ -13,15 +14,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const file = getFile(filename, "games");
   const name = filename.replace(/\.exe/, "");
 
-  const { url, width, height } = JSON.parse(file);
+  const { url, width, height, component } = JSON.parse(file);
 
   return {
     props: {
       files: files,
       name: name,
-      url: url,
-      width: width,
-      height: height,
+      url: url ?? null,
+      width: width ?? null,
+      height: height ?? null,
+      component: component ?? null,
     },
   };
 };
@@ -45,9 +47,10 @@ type Props = {
   files: string[];
   name: string;
   constraintsRef: React.MutableRefObject<HTMLDivElement | null>;
-  url: string;
-  width: number;
-  height: number;
+  url?: string;
+  width?: number;
+  height?: number;
+  component?: string;
 };
 
 export default function Post({
@@ -57,7 +60,10 @@ export default function Post({
   url,
   width,
   height,
+  component,
 }: Props) {
+  const Component = component ? dynamic(() => import(`../../components/games/${name}.tsx`)) : null;
+
   return (
     <>
       <Head>
@@ -69,13 +75,16 @@ export default function Post({
       <Items files={files} />
 
       <Window constraintsRef={constraintsRef} className="h-min">
-        <iframe
-          width={width}
-          height={height}
-          src={url}
-          frameBorder="0"
-          allowFullScreen
-        />
+        {Component && <Component />}
+        {url && (
+          <iframe
+            width={width}
+            height={height}
+            src={url}
+            frameBorder="0"
+            allowFullScreen
+          />
+        )}
       </Window>
     </>
   );
