@@ -41,4 +41,8 @@ assim.
 
 E aqui o resultado com tudo funcionando.
 
-<video src="/images/knobs/knobs.webm" controls>
+<video controls>
+  <source src="/images/knobs/knobs.webm" type="video/webm" />
+  <source src="/images/knobs/knobs.mp4" type="video/mp4" />
+</video>
+
