@@ -26,7 +26,13 @@ module.exports = {
             'pre code': {
               width: '0',
               display: 'block',
-            }
+            },
+            'code::before': {
+              content: '""'
+            },
+            'code::after': {
+              content: '""'
+            },
           },
         },
       },
