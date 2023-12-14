@@ -44,3 +44,7 @@ mensagem: sou teu fa demais =)
 nome: tilnoene
 data: 31-10-22
 mensagem: eu também sou seu ídolo
+
+nome: Gui
+data: 14-12-23
+mensagem: valeu pelas dicas sobre VPN, tmj
