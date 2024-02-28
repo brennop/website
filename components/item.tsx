@@ -3,6 +3,10 @@ import Link from "next/link";
 function getEmoji(file: string) {
   const [_, extension] = file.split(".");
 
+  if (file === "tracks") {
+    return "🎵";
+  }
+
   switch (extension) {
     case "md":
       return "📝";
@@ -12,6 +16,8 @@ function getEmoji(file: string) {
       return "📄";
     case "jpg":
       return "🖼️";
+    case "mp3":
+      return "🎵";
     default:
       return "📁";
   }
