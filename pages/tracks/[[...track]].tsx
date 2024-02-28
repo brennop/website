@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   return {
     props: {
       // as it's a catch-all route, track is an array
-      track: track ? track[0] : null,
+      track: track ? track[0] : "tracks",
       files: getFiles(),
     },
   };
