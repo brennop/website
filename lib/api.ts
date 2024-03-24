@@ -23,5 +23,9 @@ export function getMarkdownFiles(): string[] {
 }
 
 export function getFile(file: string, path: string = ""): string {
-  return fs.readFileSync(join(filesDir, path, file), "utf8");
+  try {
+    return fs.readFileSync(join(filesDir, path, file), "utf8");
+  } catch (error) {
+    return "";
+  }
 }

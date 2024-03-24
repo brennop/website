@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 import Head from "next/head";
 import Items from "../../components/items";
 
@@ -6,13 +6,21 @@ import Window from "../../components/window";
 import { getFile, getFiles } from "../../lib/api";
 import mdToHtml, { parseFrontmatter } from "../../lib/mdToHtml";
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, locale, defaultLocale }) => {
   const files = getFiles();
 
   const filename = params?.post as string;
-
-  const file = getFile(filename, "blog");
   const name = filename.replace(/\.md$/, "");
+
+  let file = "";
+
+  if (locale !== defaultLocale) {
+    file = getFile(filename, `en/blog`);
+  }
+
+  if (file == "") {
+    file = getFile(filename, "blog");
+  }
 
   const { content, data } = parseFrontmatter(file);
   const html = await mdToHtml(content);
@@ -27,17 +35,24 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const files = getFiles("blog");
+
+  if (!locales) {
+    throw new Error("locales not defined");
+  }
 
   return {
     paths: files.map((file) => {
-      return {
-        params: {
-          post: file,
-        },
-      };
-    }),
+      return locales.map((locale) => {
+        return {
+          params: {
+            post: file,
+          },
+          locale: locale,
+        };
+      });
+    }).flat(),
     fallback: false,
   };
 }
