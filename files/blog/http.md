@@ -41,7 +41,7 @@ Hello World!
 
 HTTP utiliza TCP como camada de transporte. Para isso vamos precisar criar um
 _socket_ e atribuir a uma porta. Como estamos usando Lua, vamos utilizar a
-biblioteca, adivinha, [`lua-socket`](site do lua socket).
+biblioteca, adivinha, [LuaSocket](https://lunarmodules.github.io/luasocket/).
 
 É provável que essa biblioteca estaja incluída no gerenciador de pacotes da sua
 distro (caso esteja utilizando linux). Se não, é possível instalar utilizando
@@ -50,7 +50,7 @@ distro (caso esteja utilizando linux). Se não, é possível instalar utilizando
 ## Criando um socket TCP
 
 Precisamos falar pro nosso OS que aceitamos conexões em uma determinada porta.
-A função bind faz exatamente isso. O primeiro argumento é qual IP da interface.
+A função _bind_ faz exatamente isso. O primeiro argumento é qual IP da interface.
 Vamos usar "\*" para permitir qualquer interface. O segundo argumento é a
 porta. Vamos utilizar um número sensível como 3000.
 
@@ -87,11 +87,8 @@ nosso servidor apenas ecoa a _request line_ e imediatamente fecha a conexão.
 ## Respondendo que nem gente
 
 Seria uma maravilha se os servidores se comportassem assim como o nosso. Nosso
-tutorial estaria pronto e ninguém ficaria viciado no TikTok, já que o servidor
-nunca responderia com vídeos a sua requisição.
-
-Mas o cliente espera uma resposta. Vamos utilizar o método `send` do cliente
-para enviar dados.
+tutorial estaria pronto. Mas o cliente espera uma resposta. Vamos utilizar o
+método `send` do cliente para enviar dados.
 
 ```lua
 client:send("HTTP/1.1 200 OK\r\n\r\n")
@@ -100,3 +97,13 @@ client:send("HTTP/1.1 200 OK\r\n\r\n")
 Nosso servidor agora responde devidamente os clientes. Mas você deve estar se
 perguntando :thinking:, o que são esses `\r\n\r\n` no final da mensagem. Isso é
 como o protocolo indica que uma mensagem chegou ao fim.
+
+## Resultado final
+
+Seria interessante se nosso servidor se importasse com o caminho da requisição,
+seu conteúdo e cabeçalhos. Mas isso é só uma visão geral de como um servidor HTTP
+funciona.
+
+Se quiser dar uma olhada em como isso seria feito, da uma olhada nessa lib que eu fiz:
+[http.lua](https://github.com/brennop/http.lua). Com ~150 linhas de código, é
+possível criar um servidor HTTP que lida com cabeçalhos, corpo e caminhos.
