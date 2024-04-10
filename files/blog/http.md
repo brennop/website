@@ -102,8 +102,23 @@ como o protocolo indica que uma mensagem chegou ao fim.
 
 Seria interessante se nosso servidor se importasse com o caminho da requisição,
 seu conteúdo e cabeçalhos. Mas isso é só uma visão geral de como um servidor HTTP
-funciona.
+funciona. Num post futuro, vamos explorar como lidar com _headers_ e corpo.
 
 Se quiser dar uma olhada em como isso seria feito, da uma olhada nessa lib que eu fiz:
 [http.lua](https://github.com/brennop/http.lua). Com ~150 linhas de código, é
 possível criar um servidor HTTP que lida com cabeçalhos, corpo e caminhos.
+
+```lua
+local socket = require "socket"
+
+local server = socket.bind("*", 3000)
+
+while true do
+  local client = server:accept()
+
+  local request_line = client:receive()
+
+  client:send("HTTP/1.1 200 OK\r\n\r\n")
+  client:close()
+end
+```
