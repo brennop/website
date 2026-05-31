@@ -5,3 +5,7 @@
 video {
   max-height: 500px;
 }
+
+.sixteen-nine {
+  aspect-ratio: 16 / 9;
+}

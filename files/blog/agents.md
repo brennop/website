@@ -159,4 +159,4 @@ Eu achava que o claude code era um grande musse. No frigir dos ovos é só um
 loop dentro de um loop. Então eu fiz meu próprio musse,
 [claudio-bode](https://github.com/brennop/claudio-bode), o GOAT dos agentes.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RG9TMn1FJzc?si=IqpmgtBYrxlWRYLi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe class="w-full sixteen-nine" src="https://www.youtube.com/embed/RG9TMn1FJzc?si=IqpmgtBYrxlWRYLi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
