@@ -1,7 +1,6 @@
 ---
 slug: agents
-date: 2026-05-30
-title: Escrevi um agente
+date: 2026-05-31
 ---
 
 Estou mudando meu título de engenheiro de software para babá de agentes.
@@ -147,7 +146,7 @@ pseudoagente já roda ferramentas, só falta um loop:
 Isso criará uma recursão mútua, efetivamente criando um loop. Não se procupe
 com a stack, lua possui [tail call optimization](https://en.wikipedia.org/wiki/Tail_call).
 
-A condição de parada é `match` do `agent.handle` não casar mais, ou seja, o
+A condição de parada é o `match` do `agent.handle` não casar mais, ou seja, o
 modelo não possui mais chamadas de ferramenta a fazer. Esse é um ótimo proxy para
 conclusão da tarefa: ou o objetivo foi alcaçado, ou o modelo não sabe mais o
 que fazer. Nesse último caso, o loop do REPL dá ao usuário a chance de
@@ -158,6 +157,6 @@ do agente.
 
 Eu achava que o claude code era um grande musse. Turns out é só um loop dentro
 de um loop. Então eu fiz meu próprio musse,
-[claudio-bode](https://github.com/brennop/claudio-bode), o goat dos agentes.
+[claudio-bode](https://github.com/brennop/claudio-bode), o GOAT dos agentes.
 
-![](https://www.youtube.com/watch?v=RG9TMn1FJzc)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RG9TMn1FJzc?si=IqpmgtBYrxlWRYLi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
