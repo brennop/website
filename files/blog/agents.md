@@ -8,16 +8,16 @@ Eu nem gosto muito de codar com IA, mas com a atual expectativa dos superiores
 não me restam alternativas. Além disso, sobra mais tempo pra ver tiktok.
 
 Ainda asssim, não queria deixar essa caixa preta me dominar. Queria entender
-como funciona. Então fiz o que sempre faço: tentei escrever meu próprio agente.
+como funciona. Então fiz o que sempre faço: tentei fazer o meu próprio.
 
 # number go up
 
 Desde a primeira vez que ouvi a palavra agente no contexto de IA já senti um
-trem ruim. Um misto de confusão com o conceito e a certeza que tão me
-enganando pra aumentar algum número: engajamento, valor de mercado, etc. 
+trem ruim. Um misto de confusão com a certeza que tão me enganando pra aumentar
+algum número: engajamento, valor de mercado, etc.
 
-Turns out agente é um trem muito simples. É só uma LLM muito determinada
-Vamos recapitular o funcionamento de um motor de inferência de uma LLM: um loop
+Turns out agente é um trem muito simples. É só uma IA muito determinada.
+Vamos recapitular o funcionamento do motor de inferência de uma LLM: um loop
 de multiplicação de matriz até um token de parada.
 
 ```
@@ -32,9 +32,9 @@ function llm(context) is
     return context
 ```
 
-Todo agente tem uma _tarefa_. Pra transformar a LLM em um agente, basta colocar  
-um loop em volta. Ao invés de parar quando EOS, você tenta denovo, até o tarefa
-estar pronta. E tá pronto seu agente!
+Pra transformar a LLM em um agente, basta colocar  um loop em volta. Todo
+agente tem uma _tarefa_. Ao invés de parar quando EOS, você tenta de novo, até
+a tarefa estar concluída. E tá pronto seu agente!
 
 ```
 function agent(task) is
@@ -96,7 +96,7 @@ resultado pro modelo.
 
 Vamos criar algumas funções helper para lidar com tools calls. `handle-tools`
 faz o decoding da requisição da LLM, enquanto `handle-tool` chama a ferramenta
-correta e retorna seu resultado.
+correta e devolve seu resultado.
 
 ```fennel
 (local agent {})
@@ -155,8 +155,8 @@ do agente.
 
 # claudio-bode
 
-Eu achava que o claude code era um grande musse. Turns out é só um loop dentro
-de um loop. Então eu fiz meu próprio musse,
+Eu achava que o claude code era um grande musse. No frigir dos ovos é só um
+loop dentro de um loop. Então eu fiz meu próprio musse,
 [claudio-bode](https://github.com/brennop/claudio-bode), o GOAT dos agentes.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RG9TMn1FJzc?si=IqpmgtBYrxlWRYLi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
