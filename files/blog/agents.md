@@ -4,23 +4,22 @@ date: 2026-05-30
 title: Escrevi um agente
 ---
 
-![](https://www.youtube.com/watch?v=RG9TMn1FJzc)
-
 Estou mudando meu título de engenheiro de software para babá de agentes.
-Eu nem gosto muito de codar com IA, mas 
+Eu nem gosto muito de codar com IA, mas com a atual expectativa dos superiores
+não me restam alternativas. Além disso, sobra mais tempo pra ver tiktok.
 
-Não queria deixar essa caixa preta me dominar. Queria entender como funciona.
-Então fiz o que sempre faço: tentei escrever meu próprio agente.
+Ainda asssim, não queria deixar essa caixa preta me dominar. Queria entender
+como funciona. Então fiz o que sempre faço: tentei escrever meu próprio agente.
 
 # number go up
 
-Desde a primeira vez que ouvi a palavra agente no contexto de IA já me deu um
-negócio ruim. Uma mistura de confusão com o concetio com a certeza que tão me
+Desde a primeira vez que ouvi a palavra agente no contexto de IA já senti um
+trem ruim. Um misto de confusão com o conceito e a certeza que tão me
 enganando pra aumentar algum número: engajamento, valor de mercado, etc. 
 
-Turns out agente é um trem muito simples. Vamos recapitular o funcionamento de
-um motor de inferência de uma LLM. Um loop de multiplicação de matriz até o
-token de parada. Daí a gente retorna controle para o usuário.
+Turns out agente é um trem muito simples. É só uma LLM muito determinada
+Vamos recapitular o funcionamento de um motor de inferência de uma LLM: um loop
+de multiplicação de matriz até um token de parada.
 
 ```
 function llm(context) is
@@ -34,8 +33,9 @@ function llm(context) is
     return context
 ```
 
-Um agente é apenas uma LLM muito determinada. Todo agente tem uma _tarefa_.
-Ao invés de parar quando EOS, você tenta denovo, até o tarefa estar pronta.
+Todo agente tem uma _tarefa_. Pra transformar a LLM em um agente, basta colocar  
+um loop em volta. Ao invés de parar quando EOS, você tenta denovo, até o tarefa
+estar pronta. E tá pronto seu agente!
 
 ```
 function agent(task) is
@@ -43,8 +43,6 @@ function agent(task) is
         result = llm(task.context)
         task.context.append(result)
 ```
-
-Sim, um agente é só isso.
 
 # `agent.fnl`
 
@@ -75,19 +73,11 @@ say hi
 Hi there! 👋 How's it going?
 ```
 
-# tools
-
-<!--
-A llm são apenas pesos mortos em uma vram. Não consegue interagir com o mundo
-real. É por isso que inventaram _tool call_. Ao invés de emitir um texto para o
-usuário, o modelo pede ajuda. Essa ajuda pode vir na forma de tentar fazer uma
-busca na web, editar um arquivo ou rodar um comando no bash. É dever do nosso
-agente então entender esse pedido, realizar a ação 
--->
+# 🛠️ tools
 
 LLMs são apenas pesos mortos em uma VRAM, não conseguem interagir com o mundo
 lá fora. Tudo que sabem é emitir texto. Por isso inventaram _tool calls_: é
-como se o modelo emitisse uma procuração. Essas procurações pode conter uma
+como se o modelo emitisse uma procuração. Essas procurações podem conter uma
 busca na web, edição de arquivo, ou até um comando bash. É dever do código do
 agente atuar como procurador, realizando a ação no lugar da LLM e devolvendo o
 resultado pro modelo.
@@ -158,8 +148,8 @@ Isso criará uma recursão mútua, efetivamente criando um loop. Não se procupe
 com a stack, lua possui [tail call optimization](https://en.wikipedia.org/wiki/Tail_call).
 
 A condição de parada é `match` do `agent.handle` não casar mais, ou seja, o
-modelo não possui mais chamadas de ferramenta a fazer. Esse é um bom proxy para
-conclusão: ou a tarefa foi concluída com sucesso, ou o modelo não sabe mais o
+modelo não possui mais chamadas de ferramenta a fazer. Esse é um ótimo proxy para
+conclusão da tarefa: ou o objetivo foi alcaçado, ou o modelo não sabe mais o
 que fazer. Nesse último caso, o loop do REPL dá ao usuário a chance de
 providenciar mais contexto pra tarefa, dando o ponta-pé pra mais uma aventura
 do agente.
@@ -170,3 +160,4 @@ Eu achava que o claude code era um grande musse. Turns out é só um loop dentro
 de um loop. Então eu fiz meu próprio musse,
 [claudio-bode](https://github.com/brennop/claudio-bode), o goat dos agentes.
 
+![](https://www.youtube.com/watch?v=RG9TMn1FJzc)
